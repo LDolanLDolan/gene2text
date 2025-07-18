@@ -1,4 +1,4 @@
-﻿# Complete genetic code dictionary with biological context
+# Complete genetic code dictionary with biological context
 CODON_TABLE = {
     # Start codon
     'ATG': {'amino_acid': 'Methionine', 'type': 'start', 'description': 'The universal start codon - where protein synthesis begins'},
@@ -190,14 +190,15 @@ def translate_dna_to_text(sequence, reading_frame=0, detailed=True):
     if protein_sequence:
         protein_str = ''.join(protein_sequence)
         output.append("🧪 **Resulting Protein Sequence:**")
-        output.append(f"{protein_str}")
+        output.append(f"`{protein_str}`")
         output.append("")
         
         # Count amino acids
         start_codons = sum(1 for codon in codons if len(codon) == 3 and CODON_TABLE.get(codon, {}).get('type') == 'start')
         stop_codons = sum(1 for codon in codons if len(codon) == 3 and CODON_TABLE.get(codon, {}).get('type') == 'stop')
         
-	output.append(f"📈 **Summary:** {start_codons} start codon(s), {stop_codons} stop codon(s)")
+        output.append(f"📈 **Summary:** {start_codons} start codon(s), {stop_codons} stop codon(s)")
+    
     return "\n".join(output)
 
 def get_example_sequences():
