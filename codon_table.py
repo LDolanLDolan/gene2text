@@ -197,7 +197,7 @@ def translate_dna_to_text(sequence, reading_frame=0, detailed=True):
         start_codons = sum(1 for codon in codons if len(codon) == 3 and CODON_TABLE.get(codon, {}).get('type') == 'start')
         stop_codons = sum(1 for codon in codons if len(codon) == 3 and CODON_TABLE.get(codon, {}).get('type') == 'stop')
         
-        output.append(f"📈 **Summary:** {start_codons} start codon(s), {stop_codons}    
+	output.append(f"📈 **Summary:** {start_codons} start codon(s), {stop_codons} stop codon(s)")
     return "\n".join(output)
 
 def get_example_sequences():
